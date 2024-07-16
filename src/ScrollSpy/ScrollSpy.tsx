@@ -31,6 +31,8 @@ interface ScrollSpyProps {
 
   useBoxMethod?: boolean;
   updateHistoryStack?: boolean;
+
+  className:string;
 }
 
 const ScrollSpy = ({
@@ -56,6 +58,7 @@ const ScrollSpy = ({
 
   useBoxMethod = true,
   updateHistoryStack = true,
+  className=""
 }: ScrollSpyProps) => {
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const [navContainerItems, setNavContainerItems] = useState<NodeListOf<Element> | undefined>(); // prettier-ignore
@@ -190,7 +193,7 @@ const ScrollSpy = ({
         );
   });
 
-  return <div ref={scrollContainerRef}>{children}</div>;
+  return <div className={className} ref={scrollContainerRef}>{children}</div>;
 };
 
 export default ScrollSpy;
